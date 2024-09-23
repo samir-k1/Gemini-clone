@@ -1,46 +1,55 @@
-.main{
+.main {
     flex: 1;
-    min-height: 100vh;
-     }
-.nav{
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 10px;
-color: gray;
+    height: 100vh; /* Ensure it takes full screen height */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensure .main-bottom stays inside the view */
+    overflow: hidden; /* Prevent overflow */
 }
-.main .nav img{
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: gray;
+}
+
+.main .nav img {
     width: 30px;
     border-radius: 50px;
-
 }
 
-.main-container{
+.main-container {
     max-width: 700px;
     margin: auto;
+    padding: 0 10px; /* Add padding to avoid overflow */
 }
-.main .greet{
-    margin: 50px 0px ;
+
+.main .greet {
+    margin: 40px 0;
     font-size: 55px;
     color: rgb(161, 161, 161);
     font-weight: 500;
-    padding: 20px;
+    padding: 10px 0; /* Avoid too much padding on both sides */
+}
 
- }
- .main .greet span{
-    background: -webkit-linear-gradient(16deg,#4b90ff,rgb(203, 107, 33) );
+.main .greet span {
+    background: -webkit-linear-gradient(16deg, #245fbe, rgb(225, 36, 222));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
- }
- .cards {
+}
+
+.cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); /* Responsive grid */
     gap: 10px; /* Spacing between cards */
-    border-radius: 10px ,black;
+    border-radius: 10px;
+    padding-bottom: 20px ; /* Adjust padding */
 }
 
 .card {
-    background-color: #ffffff; /* White card background */
+    background-color: #cbccce;
     border-radius: 12px; /* Rounded corners */
     padding: 15px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
@@ -48,6 +57,7 @@ color: gray;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 10px;
     transition: transform 0.2s ease-in-out;
 }
 
@@ -56,11 +66,48 @@ color: gray;
 }
 
 .card p {
-    font-size: 14px; /* Medium font size for text */
+    font-size: 12px; /* Medium font size for text */
     margin-bottom: 10px;
 }
 
 .card img {
-    width: 32px; /* Smaller image size */
-    height: 32px;
+    width: 20px; /* Smaller image size */
+    height: 20px;
+}
+
+.main-bottom {
+    position: relative; /* Change from absolute to relative */
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 10px 20px; /* Fix padding syntax */
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #cbccce;
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.bottom-img {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    padding-right: 50px;
+}
+
+.search-box input{
+    flex: 1;
+    background:transparent;
+    border: none;
+    outline: none;
+    font-size: 13px;
+}
+.bottom-info{
+    font-size: 10px;
+    padding-bottom: 10px;
+    align-items: center;
 }

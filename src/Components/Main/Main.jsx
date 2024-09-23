@@ -34,6 +34,20 @@ const Main = () => {
 
         </div>
     </div>
+    <div className="main-bottom">
+        <div className="search-box">
+            <input type="text" placeholder='Enter your Prompt Here' />
+            <div className='bottom-img'>
+                <img src={assets.gallery_icon} alt="" />
+                <img src={assets.mic_icon} alt="" />
+                <img src={assets.send_icon} alt="" />
+
+
+
+            </div>
+        </div>
+        <p className="bottom-info">Gemini is not 100 % accurate it can provide the wrong data so please recheck it whenever you are in doubt</p>
+    </div>
 </div>
   )
 }
