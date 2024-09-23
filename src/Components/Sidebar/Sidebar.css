@@ -1,0 +1,130 @@
+.Sidebar {
+    width: 80px; /* Default small width */
+    height: 100vh;
+    background-color: #f0f0f0; /* Light grey background */
+    color: #333; /* Dark grey text for readability */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    transition: width 0.3s ease;
+}
+
+.Sidebar.extended {
+    width: 200px; /* Extended width when recent has entries */
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+}
+
+.menu {
+    width: 20px;
+    cursor: pointer;
+}
+
+.addbutton{
+    width: 10px;
+    align-items: center;
+}
+
+.newchat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background-color: #ffffff; 
+    color: #555;
+    border-radius: 15px;
+    /* width: 120px; */
+    font-size: 12px; /* Medium font size */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.newchat p {
+    display: none;
+    font-size: 15px;
+    color: #555;
+}
+
+.Sidebar.extended .newchat p {
+    display: block;
+}
+
+.newchat:hover {
+    background-color: #d4d4d4; /* Darker grey on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.recent {
+    margin-top: 10px;
+}
+
+.recent-title {
+    display: none;
+}
+
+.Sidebar.extended .recent-title {
+    display: block;
+    font-weight: bold;
+    font-size: 15px; /* Medium font size */
+    color: #555; /* Slightly darker grey for the title */
+    margin-bottom: 14px;
+}
+
+.recent-entry {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 12px;
+    border-radius: 12px;
+    font-size: 15px; /* Medium font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+.image-box{
+    width: 20px;
+}
+
+.recent-entry p {
+    display: none;
+    font-size: small;
+}
+
+.Sidebar.extended .recent-entry p {
+    display: block;
+}
+
+.recent-entry:hover {
+    background-color: #d4d4d4;
+    transform: scale(1.05);
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px;
+    padding-top: 10px;
+    border-radius: 8px;
+    font-size: 12px; /* Match font size */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.bottom-item img {
+    width: 1em; /* Scale image with font size */
+    height: 1em;
+}
+
+.bottom-item:hover {
+    background-color: #d4d4d4;
+    transform: scale(1.05);
+}
