@@ -43,15 +43,27 @@ const Main = () => {
                     </>
                 ) : (
                     <div className="result">
-                      <div className="result-title">
-                        <img src={assets.user_icon} alt="" />
-                        <p>{recentPrompt}</p>
+                    {loading ? (
+                      <div className="loader">
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
                       </div>
-                      <div className="result-data">
-                        <img src={assets.gemini_icon} alt="" />
-                        <p dangerouslySetInnerHTML={{__html:resultData}}></p>
-                      </div>
-                    </div>
+                    ) : (
+                      <>
+                        <div className="result-title">
+                          <img src={assets.user_icon} alt="User Icon" className="result-user-icon" />
+                          <p className="result-prompt">{recentPrompt}</p>
+                        </div>
+                        <div className="result-data">
+                          <img src={assets.gemini_icon} alt="Gemini Icon" className="result-gemini-icon" />
+                          <p className='result-Data'>{resultData}</p>
+                        </div>
+                      </>
+                    )}
+                  </div>
+                  
+
                 )}
             </div>
 
