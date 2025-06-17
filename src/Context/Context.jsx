@@ -7,7 +7,7 @@ export const Context = createContext();
 const ContextProvider = (props) => {
   const [input, setInput] = useState("");
   const [recentPrompt, setRecentPrompt] = useState("");
-  const [prevPrompt, setPrevPrompt] = useState([]);
+  const [prevPrompts, setPrevPrompts] = useState([]); // Changed from prevPrompt to prevPrompts (array)
   const [showResult, setShowResult] = useState(false);
   const [loading, setLoading] = useState(false);
   const [resultData, setResultData] = useState("");
@@ -17,23 +17,27 @@ const ContextProvider = (props) => {
     setResultData('');
     setLoading(true);
     setShowResult(true);
-    setRecentPrompt(input)
-    const response = await run(input);
+    
+    // Use the prompt parameter instead of input in case it's called from Sidebar
+    const currentPrompt = prompt || input;
+    setRecentPrompt(currentPrompt);
+    
+    // Add to previous prompts if it's not empty
+    if (currentPrompt.trim()) {
+      setPrevPrompts(prev => [currentPrompt, ...prev].slice(0, 10)); // Keep last 10 prompts
+    }
+    
+    const response = await run(currentPrompt);
     setResultData(response);
     setLoading(false);
     setInput("");
   };
 
-  // Call onSent only once (e.g., on component mount)
-  useEffect(() => {
-    onSent("what is react js");
-  }, []); // Empty dependency array ensures it only runs once
-
   // Context value to pass down
   const contextValue = {
-    prevPrompt,
-    setPrevPrompt,
-    onSent, // Make onSent available to other components
+    prevPrompts, // Changed from prevPrompt
+    setPrevPrompts,
+    onSent,
     setRecentPrompt,
     recentPrompt,
     showResult,

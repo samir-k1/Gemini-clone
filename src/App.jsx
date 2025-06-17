@@ -1,17 +1,17 @@
-import { useState } from 'react'
+import React, { useState } from 'react';
+import Sidebar from './components/Sidebar/Sidebar';
+import Main from './components/Main/Main';
+import './App.css';
 
-import './App.css'
-import Sidebar from './Components/Sidebar/Sidebar'
-import Main from './Components/Main/Main'
 function App() {
- 
+  const [sidebarExtended, setSidebarExtended] = useState(true);
 
   return (
-    <>
-<Sidebar/>
-<Main/>
-    </>
-  )
+    <div className="App">
+      <Sidebar extended={sidebarExtended} setExtended={setSidebarExtended} />
+      <Main sidebarExtended={sidebarExtended} />
+    </div>
+  );
 }
 
-export default App
+export default App;
